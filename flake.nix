@@ -2,6 +2,7 @@
   description = "Utility function to define flake packages and nixosConfigurations for all nixos-generators formats";
   inputs = {
     nixos-generators.url = "github:nix-community/nixos-generators";
+    nixos-generators.inputs.nixpkgs.follows = "nixpkgs";
     utils.url = "github:numtide/flake-utils";
   };
   outputs = {

@@ -13,6 +13,7 @@ I frequently write flakes consisting of a single NixOS configuration, and the bo
 
   inputs = {
     nixos-generators-helper.url = "github:jeslinmx/nixos-generators-helper";
+    nixos-generators-helper.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
