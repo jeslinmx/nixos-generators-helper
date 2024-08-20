@@ -3,18 +3,18 @@
   inputs = {
     nixos-generators.url = "github:nix-community/nixos-generators";
     nixos-generators.inputs.nixpkgs.follows = "nixpkgs";
-    utils.url = "github:numtide/flake-utils";
+    flake-utils.url = "github:numtide/flake-utils";
   };
   outputs = {
     self,
     nixpkgs,
     nixos-generators,
-    utils,
+    flake-utils,
     ...
   }:
     {
       lib.mkConfigWithImage = nixpkgs: modules:
-        (utils.lib.eachDefaultSystem (system: let
+        (flake-utils.lib.eachDefaultSystem (system: let
           formatModules = nixpkgs.lib.filterAttrs (name: _: name != "all-formats") nixos-generators.nixosModules;
         in {
           packages =
@@ -35,5 +35,5 @@
         }))
         .packages;
     }
-    // utils.lib.eachDefaultSystem (system: {formatter = nixpkgs.legacyPackages.${system}.alejandra;});
+    // flake-utils.lib.eachDefaultSystem (system: {formatter = nixpkgs.legacyPackages.${system}.alejandra;});
 }
