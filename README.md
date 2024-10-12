@@ -7,6 +7,14 @@ I frequently write flakes consisting of a single NixOS configuration, and the bo
 
 # Usage
 
+## Flake template
+
+```
+nix flake init -t jeslinmx/nixos-generators-helper#proxmox-lxc
+```
+
+## Nix function
+
 ```
 {
   description = ...;

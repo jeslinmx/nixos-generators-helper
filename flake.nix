@@ -13,6 +13,13 @@
     ...
   }:
     {
+      templates = {
+        proxmox-lxc = {
+          path = ./template;
+          inherit (import ./template/flake.nix) description;
+        };
+      };
+
       lib.mkConfigWithImage = nixpkgs: modules:
         (flake-utils.lib.eachDefaultSystem (system: let
           formatModules = nixpkgs.lib.filterAttrs (name: _: name != "all-formats") nixos-generators.nixosModules;
