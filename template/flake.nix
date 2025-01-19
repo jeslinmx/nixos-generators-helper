@@ -1,7 +1,7 @@
 {
   description = "Opinionated flake template with nixos-generators and agenix";
   inputs = {
-    nixpkgs.url = "nixpkgs/release-24.05";
+    nixpkgs.url = "nixpkgs/release-24.11";
     nixos-generators.url = "github:nix-community/nixos-generators";
     nixos-generators.inputs.nixpkgs.follows = "nixpkgs";
     agenix.url = "github:ryantm/agenix";
@@ -18,7 +18,7 @@
 
     flake = {
       nixosModules = {
-        exampleModule = { system.stateVersion = "24.05"; };
+        exampleModule = { system.stateVersion = "24.11"; };
       };
       nixosConfigurations = {
         example = inputs.nixpkgs.lib.nixosSystem {
